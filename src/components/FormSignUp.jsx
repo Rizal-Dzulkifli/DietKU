@@ -1,7 +1,6 @@
 import FormLandingPage from "./FormLandingPage";
 import Button from 'react-bootstrap/Button';
 import image from '../assets/g.png';
-import Col from 'react-bootstrap/Col';
 import { Form } from 'react-bootstrap';
 import React, { useState } from "react";
 const listForm = [
@@ -89,8 +88,8 @@ function FormSignUp({triggerEvent}) {
                                 padding: "10px 20px", 
                                 borderRadius: "30px",
                                 border:"none",
-                                backgroundColor: "#C4C4C4", // Warna latar belakang default
-                                transition: "background-color 0.3s" // Transisi efek hover
+                                backgroundColor: "#C4C4C4", 
+                                transition: "background-color 0.3s" 
                             }}
                             onMouseOver={(e) => e.target.style.backgroundColor = "#4AB6C5"} 
                             onMouseOut={(e) => e.target.style.backgroundColor = "#C4C4C4"} 

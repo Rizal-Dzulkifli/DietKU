@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormSignIn from "./FormSignIn";
 import FormSignUp from "./FormSignUp";
 
+
 const Styles = {
   container: {
     display: 'flex',

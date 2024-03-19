@@ -7,7 +7,7 @@ function LandingPage(){
         <section className="content m-4" >
             <div className="container-fluid" >
                 <div className="row">
-                    <div className="col-md-6 d-flex justify-content-center align-items-center">
+                    <div className="col-md-6 pb-3 d-flex justify-content-center align-items-center">
                     <img src={image} style={{width:"75%"}}/>
                     </div>
                     <div className="col-md-6" >

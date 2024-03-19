@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import FormSignIn from "./FormSignIn";
 import FormSignUp from "./FormSignUp";
 
 const Styles = {
-  container:{
+  container: {
     display: 'flex',
     alignItems: 'flex-end'
   },
@@ -11,56 +11,49 @@ const Styles = {
     backgroundColor: '#80DCF9',
     color: '#4AB6C5',
     width: '50%',
-    padding: '7px 0',
-    fontSize: '28px',
-    borderRadius: '14px 14px 0 0',
+    padding: '0.7em 0',
+    fontSize: '1.5em',
+    borderRadius: '0.5em 0.5em 0 0',
     border: 'none',
     cursor: 'pointer',
-    fontWeight:'bold'
+    fontWeight: 'bold'
   },
   active: {
     backgroundColor: '#4AB6C5',
     color: '#fff',
-    padding: '15px 0',
+    padding: '1em 0',
   }
 };
 
 function TabLandingPage() {
-  const [tabNames, setTabNames] = useState([
-    { key: 1, name: "Masuk", isActive: true },
-    { key: 2, name: "Daftar", isActive: false }
-  ]);
+  const [activeTab, setActiveTab] = useState(1);
 
   const handleTabClick = (key) => {
-    const updatedTabs = tabNames.map(tab => ({
-      ...tab,
-      isActive: tab.key === key ? true : false
-    }));
-    setTabNames(updatedTabs);
+    setActiveTab(key);
   };
 
-  const getTabStyle = (isActive) => {
-    return isActive ? { ...Styles.default, ...Styles.active } : Styles.default;
+  const getTabStyle = (tabKey) => {
+    return tabKey === activeTab ? { ...Styles.default, ...Styles.active } : Styles.default;
   };
 
   return (
-    <div >
-    <div style={Styles.container}>
-      {tabNames.map(tab => (
+    <div>
+      <div style={Styles.container}>
         <button
-          key={tab.key}
-          onClick={() => handleTabClick(tab.key)}
-          style={getTabStyle(tab.isActive)}
+          onClick={() => handleTabClick(1)}
+          style={getTabStyle(1)}
         >
-          {tab.name}
+          Masuk
         </button>
-      ))}
+        <button
+          onClick={() => handleTabClick(2)}
+          style={getTabStyle(2)}
+        >
+          Daftar
+        </button>
       </div>
-      {
-        tabNames[0].isActive ? <FormSignIn/> : <FormSignUp/>
-      }
-      
-    
+      {activeTab === 1 && <FormSignIn triggerEvent={handleTabClick} />}
+      {activeTab === 2 && <FormSignUp triggerEvent={handleTabClick} />}
     </div>
   );
 }

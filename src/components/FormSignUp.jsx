@@ -50,7 +50,7 @@ const listForm = [
 
 ]
 
-function FormSignUp() {
+function FormSignUp({triggerEvent}) {
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (event) => {
@@ -61,6 +61,9 @@ function FormSignUp() {
         }
         setValidated(true);
     };
+    const handleClick = () => {
+        triggerEvent(1);
+      };
     return (
         <div style={{ border: "3px solid #4AB6C5", borderRadius: "0 0 40px 40px" }}>
             <div className=" m-5">
@@ -106,7 +109,7 @@ function FormSignUp() {
                     </Button>
 
                 </div>
-                <p className="p-3">Sudah punya akun ? <a href="#" style={{ textDecoration: "none", color: "#4AB6C5" }}>Masuk</a></p>
+                <p style={{textAlign:"center"}} className="p-3">Sudah punya akun ? <a href="#" onClick={handleClick} style={{ textDecoration: "none", color: "#4AB6C5" }}>Masuk</a></p>
             </div>
         </div>
 

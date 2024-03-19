@@ -6,6 +6,7 @@ import { Form } from 'react-bootstrap';
 import React, { useState } from "react";
 
 
+
 const listForm = [
     {
         id: "formemail",
@@ -21,7 +22,7 @@ const listForm = [
     }
 ];
 
-function FormSignIn() {
+function FormSignIn({triggerEvent}) {
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (event) => {
@@ -32,6 +33,9 @@ function FormSignIn() {
         }
         setValidated(true);
     };
+    const handleClick = () => {
+        triggerEvent(2);
+      };
     return (
         <div style={{ border: "3px solid #4AB6C5", borderRadius: "0 0 40px 40px" }}>
             <div className=" m-5">
@@ -89,7 +93,7 @@ function FormSignIn() {
                     </Button>
 
                 </div>
-                <p className="p-3">Belum punya akun ? <a href="#" style={{ textDecoration: "none", color: "#4AB6C5" }}>Daftar</a></p>
+                <p style={{textAlign:"center"}} className="p-3">Belum punya akun ? <a href="#" onClick={handleClick}  style={{ textDecoration: "none", color: "#4AB6C5" }}>Daftar</a></p>
             </div>
         </div>
     );

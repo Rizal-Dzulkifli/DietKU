@@ -4,11 +4,12 @@ import LandingPage from './components/LandingPage.jsx'
 
 import Navbar from './components/NavBar.jsx'
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter([
+
+const router = createHashRouter([
   {
     path: "/",
     element: <Navbar />,

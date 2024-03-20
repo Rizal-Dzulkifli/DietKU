@@ -1,29 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import LandingPage from './components/LandingPage.jsx'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createBrowserRouter, Route, RouterProvider } from 'react-router-dom';
+import LandingPage from './components/LandingPage.jsx';
+import Navbar from './components/NavBar.jsx';
 
-import Navbar from './components/NavBar.jsx'
-import {
-  createHashRouter,
-  RouterProvider,
-} from "react-router-dom";
-
-
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Navbar />,
-    
   },
   {
-    path: "/masuk",
+    path: '/masuk',
     element: <LandingPage />,
-    
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <RouterProvider router={router}>
+      <Route />
+    </RouterProvider>
   </React.StrictMode>,
-)
+  document.getElementById('root')
+);
